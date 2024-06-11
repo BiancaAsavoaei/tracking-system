@@ -1,0 +1,36 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "prod": "vite build",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.19.3",
+        "@popperjs/core": "^2.11.6",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "@vue/compat": "^3.3.8",
+        "@vue/compiler-sfc": "^3.3.8",
+        "axios": "^1.6.2",
+        "bootstrap-vue-next": "^0.16.6",
+        "chokidar": "^3.5.3",
+        "d3": "^7.8.5",
+        "date-fns": "^3.3.1",
+        "dotenv": "^16.0.3",
+        "laravel-vite-plugin": "^1.0.1",
+        "moment": "^2.29.4",
+        "moment-timezone": "^0.5.38",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.55.0",
+        "sass-loader": "^14.1.1",
+        "typescript": "^5.3.3",
+        "vite": "^5.1.4",
+        "vue": "^3.3.8",
+        "vue-router": "^4.2.5",
+        "vuex": "^4.1.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3"
+    },
+    "type": "module"
+}

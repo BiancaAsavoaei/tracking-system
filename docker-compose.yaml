@@ -1,0 +1,33 @@
+services:
+    project_app:
+        build:
+            context: project-app/.dockerlocal
+            dockerfile: Dockerfile
+        image: project-app
+        container_name: 'tracking_app'
+        ports:
+            - '8080:8080'
+            - '5173:5173'
+        volumes:
+            - './project-app:/var/www/html'
+            - './project-app/.dockerlocal/php/php.ini:/usr/local/etc/php/php.ini:cached'
+        entrypoint: [".dockerlocal/entrypoint.sh"]
+        depends_on:
+            - trackingdb
+
+    trackingdb:
+        image: mariadb
+        container_name: 'waydev_trackingdb'
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_USER: 'root'
+            MYSQL_PASSWORD: ''
+            MYSQL_ROOT_PASSWORD: ''
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - 'trackingdb:/var/lib/mysql:cached'
+
+volumes:
+    trackingdb:
+        driver: local
