@@ -16,26 +16,37 @@ ENV MIX_DISABLE_RECAPTCHA=1
 RUN apt update --fix-missing && \
     apt install -y --no-install-recommends \
         software-properties-common \
-        apt-utils \
         wget \
+        apt-utils \
         libzip-dev \
-        build-essential \
+        python3-setuptools \
+        python3-pip \
+        gettext \
         unzip \
         git \
         jq \
         ssh \
         zlib1g-dev \
         curl \
+        supervisor \
+        libcurl4-openssl-dev \
+        libfreetype6-dev \
+        libxpm-dev \
+        libjpeg62-turbo-dev \
+        libwebp-dev \
+        libpng-dev \
         tini \
-        libbrotli-dev
+        libssl-dev
 
-RUN pecl install swoole
+RUN pip3 install devcron gitpython --break-system-packages
+RUN pecl install redis swoole
 
 RUN touch /usr/local/etc/php/conf.d/swoole.ini && \
     echo 'extension=swoole.so' > /usr/local/etc/php/conf.d/swoole.ini
 
-RUN docker-php-ext-install pcntl
-
+RUN docker-php-ext-install zip pdo_mysql pcntl gd && \
+    docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-xpm --with-freetype && \
+    docker-php-ext-enable redis
 
 RUN echo 'alias c="clear"' >> ~/.bashrc && \
     echo 'alias art="php artisan"' >> ~/.bashrc && \

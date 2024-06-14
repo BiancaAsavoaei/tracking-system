@@ -7,6 +7,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.19.3",
+        "@mdi/font": "^7.4.47",
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^5.0.4",
         "@vue/compat": "^3.3.8",
@@ -30,7 +31,14 @@
         "vuex": "^4.1.0"
     },
     "dependencies": {
-        "bootstrap": "^5.3.3"
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.5",
+        "@mdi/js": "^7.4.47",
+        "@mdi/react": "^1.6.1",
+        "@mui/icons-material": "^5.15.19",
+        "@mui/material": "^5.15.19",
+        "bootstrap": "^5.3.3",
+        "vuetify": "^3.6.9"
     },
     "type": "module"
 }
